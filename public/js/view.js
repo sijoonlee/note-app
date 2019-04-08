@@ -7,7 +7,6 @@ export function addAMemo(memo) {
     newNode.setAttribute("id", memo._id);
     newNode.style.top = memo.posY;
     newNode.style.left = memo.posX;
-    newNode.style.height = memo.height + "px";
     newNode.style.width = memo.width + "px";
     newNode.innerHTML =
         `<div class=\"top\" style = \"height:${topHeight}px\">
@@ -21,9 +20,11 @@ export function addAMemo(memo) {
         <div class = \"resizer\"></div></div>`;
 
     if (memo.isHidden){
-        newNode.getElementsByClassName("content")[0].style.display = "none";
+        newNode.style.height = "60px";
+        newNode.getElementsByClassName("body")[0].style.display = "none";
         newNode.getElementsByClassName("resizer")[0].style.display = "none";
-    }
+    } else
+        newNode.style.height = memo.height + "px";
    
     
     var givenNode = document.getElementsByClassName("board")[0];
@@ -46,16 +47,16 @@ export function deleteAllMemos(){
 	existingPinBoard.innerHTML = ""; // clean board
 }
 
-export function toggleHide(memoNode, height){
+export function toggleHide(memoNode, {height, isHidden}){
     let bodyNode = memoNode.getElementsByClassName("body")[0];
     let resizerNode = memoNode.getElementsByClassName("resizer")[0];
-    if(bodyNode.style.display == 'none'){
+    if(isHidden){
+        memoNode.style.height = "60px";
+        bodyNode.style.display = 'none';
+        resizerNode.style.display = "none";        
+    } else {
         memoNode.style.height = height;
         bodyNode.style.display = 'block';
         resizerNode.style.display = "block";
-    } else {
-        memoNode.style.height = "60px";
-        bodyNode.style.display = 'none';
-        resizerNode.style.display = "none";
     }
 }

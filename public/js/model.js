@@ -92,6 +92,6 @@ export function updateAMemo (memo){
 
 export function toggleHide(id){
     const index = findAMemo(id);
-    webBoard[index].isHidden = !webBoard[index].isHidden || true;
-    return webBoard[index].height || 100;  
+    webBoard[index].isHidden = !webBoard[index].isHidden;
+    return {height:webBoard[index].height, isHidden: webBoard[index].isHidden};  
 }

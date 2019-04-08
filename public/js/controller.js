@@ -36,8 +36,8 @@ var bindEvent = function (memoNode){ //memoNode = memo div
     });
 
     hideButtonNode.addEventListener("click", async ()=>{
-        const height = await model.toggleHide(id);
-        await view.toggleHide(memoNode, height);    
+        const setValues = await model.toggleHide(id);
+        await view.toggleHide(memoNode, setValues);    
     });
 
     dragPinNode.addEventListener("mousedown", () => { // elmnt : pinBox div

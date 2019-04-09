@@ -118,11 +118,7 @@ saveNode.addEventListener("click", async ()=>{
 var loadNode = document.getElementsByClassName("load")[0];
 loadNode.addEventListener("click", async ()=>{
     await view.deleteAllMemos();
-    const webBoard = await model.loadBoard();
-    for ( let i in webBoard){
-        let memoNode = await view.addAMemo(webBoard[i]);
-        await bindEvent(memoNode)
-    }
+    await initBoard();
 });
 
 var deleteAllMemosNode = document.getElementsByClassName("deleteAllMemos")[0];
@@ -131,4 +127,13 @@ deleteAllMemosNode.addEventListener("click", ()=>{
     view.deleteAllMemos();
 });
 
+async function initBoard(){
+    const webBoard = await model.loadBoard();
+    for ( let i in webBoard){
+        let memoNode = await view.addAMemo(webBoard[i]);
+        await bindEvent(memoNode)
+    }
+}
+
+initBoard();
 

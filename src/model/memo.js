@@ -26,13 +26,12 @@ const memoSchema = new mongoose.Schema({
     },
     isHidden:{
         type: Boolean
+    },
+    owner:{
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User' // reference: model name
     }
-    //,
-    // owner:{
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     required: true,
-    //     ref: 'User' // reference: model name
-    // }
 }, {
     timestamps: true
 })

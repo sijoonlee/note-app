@@ -1,12 +1,13 @@
 const express = require('express')
 const Memo = require('../model/memo')
-// const auth = require('../middleware/auth')
+const auth = require('../middleware/auth')
 const router = new express.Router()
 
-router.post('/memo', async (req, res) => {
+router.post('/memo', auth, async (req, res) => {
     console.log(req);
     const memo = new Memo({
-        ...req.body
+        ...req.body,
+        owner: req.user._id
     })
 
     try {
@@ -18,7 +19,7 @@ router.post('/memo', async (req, res) => {
 
 })
 
-router.get('/memo', async (req, res) => {
+router.get('/memo', auth, async (req, res) => {
     try {
         const memo = await Memo.find({})
         if (!memo) {
@@ -30,7 +31,7 @@ router.get('/memo', async (req, res) => {
     }
 })
 
-router.get('/memo/:id', async (req, res) => {
+router.get('/memo/:id', auth, async (req, res) => {
     const _id = req.params.id
 
     try {
@@ -46,7 +47,7 @@ router.get('/memo/:id', async (req, res) => {
     }
 })
 
-router.delete('/memo/', async (req, res) => {
+router.delete('/memo/', auth, async (req, res) => {
     try {
         const memo = await Memo.remove()
        
@@ -60,7 +61,7 @@ router.delete('/memo/', async (req, res) => {
     }
 })
 
-router.delete('/memo/:id', async (req, res) => {
+router.delete('/memo/:id', auth, async (req, res) => {
     try {
         const memo = await Memo.findOneAndDelete({_id:req.params.id})
        
@@ -74,7 +75,7 @@ router.delete('/memo/:id', async (req, res) => {
     }
 })
 
-router.patch('/memo/:id', async (req, res) => {
+router.patch('/memo/:id', auth, async (req, res) => {
     const updates = Object.keys(req.body)
     // const allowedUpdates = ['description', 'completed']
     // const isValidOperation = updates.every((update) => allowedUpdates.includes(update))

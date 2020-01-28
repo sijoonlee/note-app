@@ -6,8 +6,12 @@ document.getElementById("btn_login").addEventListener("click", async () => {
     const email = document.getElementById("email").value
     const password = document.getElementById("password").value
     const result = await api.login(name, email, password)
-    console.log(result)
+    storeToken(result.token)
 })
 
+const storeToken = (token) => {
+    localStorage.setItem('token', token)
+
+}
 
 

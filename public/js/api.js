@@ -7,13 +7,14 @@ const APIURL = '/memo/'
 
 
 export async function createAMemo(newMemo={}) {
+  const token = localStorage.token
   return fetch(APIURL, {
         method: 'post',
-        //withCredentials: true,
-        //credentials: 'include',
+        withCredentials: true,
+        credentials: 'include',
         headers: new Headers({
         'Content-Type': 'application/json',
-        //'Authorization': 'Bearer ' + token
+        'Authorization': 'Bearer ' + token
         }),
         body: JSON.stringify(newMemo)
     })
@@ -34,13 +35,14 @@ export async function createAMemo(newMemo={}) {
 }
 
 export async function loadAMemo(id) {
+  const token = localStorage.token
   return fetch(APIURL+id, {
         method: 'get',
-        //withCredentials: true,
-        //credentials: 'include',
+        withCredentials: true,
+        credentials: 'include',
         headers: new Headers({
         'Content-Type': 'application/json',
-        //'Authorization': 'Bearer ' + token
+        'Authorization': 'Bearer ' + token
         })
     })
     .then(resp => {
@@ -60,13 +62,14 @@ export async function loadAMemo(id) {
 }
 
 export async function loadAllMemos() {
+  const token = localStorage.token
   return fetch(APIURL, {
         method: 'get',
-        //withCredentials: true,
-        //credentials: 'include',
+        withCredentials: true,
+        credentials: 'include',
         headers: new Headers({
         'Content-Type': 'application/json',
-        //'Authorization': 'Bearer ' + token
+        'Authorization': 'Bearer ' + token
         })
     })
     .then(resp => {
@@ -86,13 +89,14 @@ export async function loadAllMemos() {
 }
 
 export async function updateAMemo(memo) {
+  const token = localStorage.token
   return fetch(APIURL+memo._id, {
         method: 'PATCH', // be careful, "PATCH" is case-sensitive
-        //withCredentials: true,
-        //credentials: 'include',
+        withCredentials: true,
+        credentials: 'include',
         headers: new Headers({
         'Content-Type': 'application/json',
-        //'Authorization': 'Bearer ' + token
+        'Authorization': 'Bearer ' + token
         }),
         body: JSON.stringify({...memo})
     })
@@ -113,13 +117,14 @@ export async function updateAMemo(memo) {
 }
 
 export async function deleteAMemo(id) {
+  const token = localStorage.token
   return fetch(APIURL+id, {
         method: 'delete',
-        //withCredentials: true,
-        //credentials: 'include',
+        withCredentials: true,
+        credentials: 'include',
         headers: new Headers({
         'Content-Type': 'application/json',
-        //'Authorization': 'Bearer ' + token
+        'Authorization': 'Bearer ' + token
         })
     })
     .then(resp => {
@@ -139,13 +144,14 @@ export async function deleteAMemo(id) {
 }
 
 export async function deleteAllMemos() {
+  const token = localStorage.token
   return fetch(APIURL, {
         method: 'delete',
-        //withCredentials: true,
-        //credentials: 'include',
+        withCredentials: true,
+        credentials: 'include',
         headers: new Headers({
         'Content-Type': 'application/json',
-        //'Authorization': 'Bearer ' + token
+        'Authorization': 'Bearer ' + token
         })
     })
     .then(resp => {

@@ -4,12 +4,12 @@ const auth = require('../middleware/auth')
 const router = new express.Router()
 
 router.post('/memo', auth, async (req, res) => {
-    console.log(req);
+    //console.log(req);
     const memo = new Memo({
         ...req.body,
         owner: req.user._id
     })
-
+    console.log("here");
     try {
         await memo.save()
         res.status(201).send(memo)

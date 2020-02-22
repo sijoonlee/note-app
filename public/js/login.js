@@ -7,6 +7,7 @@ document.getElementById("btn_login").addEventListener("click", async () => {
     const password = document.getElementById("password").value
     const result = await api.login(name, email, password)
     storeToken(result.token)
+    console.log(result);
 })
 
 const storeToken = (token) => {

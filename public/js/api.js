@@ -8,6 +8,7 @@ const APIURL = '/memo/'
 
 export async function createAMemo(newMemo={}) {
   const token = localStorage.token
+  console.log(token);
   return fetch(APIURL, {
         method: 'post',
         withCredentials: true,
@@ -20,6 +21,8 @@ export async function createAMemo(newMemo={}) {
     })
     .then(resp => {
       if(!resp.ok) {
+        if(resp.status == 401)
+          location.replace("/login.html")
         if(resp.status >=400 && resp.status < 500) {
           resp.json().then(data => {
             return {errorMessage: data.message};
@@ -47,6 +50,8 @@ export async function loadAMemo(id) {
     })
     .then(resp => {
       if(!resp.ok) {
+        if(resp.status == 401)
+          location.replace("/login.html");
         if(resp.status >=400 && resp.status < 500) {
           return resp.json().then(data => {
             let err = {errorMessage: data.message};
@@ -74,6 +79,8 @@ export async function loadAllMemos() {
     })
     .then(resp => {
       if(!resp.ok) {
+        if(resp.status == 401)
+          location.replace("/login.html");
         if(resp.status >=400 && resp.status < 500) {
           return resp.json().then(data => {
             let err = {errorMessage: data.message};
@@ -102,6 +109,8 @@ export async function updateAMemo(memo) {
     })
     .then(resp => {
       if(!resp.ok) {
+        if(resp.status == 401)
+          location.replace("/login.html");
         if(resp.status >=400 && resp.status < 500) {
           return resp.json().then(data => {
             let err = {errorMessage: data.message};
@@ -129,6 +138,8 @@ export async function deleteAMemo(id) {
     })
     .then(resp => {
       if(!resp.ok) {
+        if(resp.status == 401)
+          location.replace("/login.html");
         if(resp.status >=400 && resp.status < 500) {
           return resp.json().then(data => {
             let err = {errorMessage: data.message};
@@ -156,6 +167,8 @@ export async function deleteAllMemos() {
     })
     .then(resp => {
       if(!resp.ok) {
+        if(resp.status == 401)
+          location.replace("/login.html");
         if(resp.status >=400 && resp.status < 500) {
           return resp.json().then(data => {
             let err = {errorMessage: data.message};

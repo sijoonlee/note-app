@@ -22,6 +22,8 @@ export async function login(name, email, password) {
             // throw err;
           }
         }
+        if(resp.status == 200)
+          location.replace("/index.html");
         return resp.json()
      }) 
   }

@@ -2,10 +2,10 @@
 
 # note-app
 
-Post-it style note app using mongoDB, node.js
+- Post-it style note app using mongoDB, node.js
 
-Draggable, Resizable element is implemented via vanilla javascript
+- Draggable, Resizable element is implemented via vanilla javascript
 
-Deployed on heroku
+- User Authentification using JSON Web Tokens
 
-https://sijoon-note-app.herokuapp.com/
+- Deployed on heroku: https://sijoon-note-app.herokuapp.com/

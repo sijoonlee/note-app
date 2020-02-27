@@ -7,7 +7,7 @@ const Memo = require('./memo')
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true,
+        required: false,
         trim: true
     },
     email: {
@@ -43,8 +43,8 @@ const userSchema = new mongoose.Schema({
     timestamps: true
 })
 
-userSchema.virtual('tasks', {
-    ref: 'Task',
+userSchema.virtual('memos', {
+    ref: 'Memo',
     localField: '_id',
     foreignField: 'owner'
 })

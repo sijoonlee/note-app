@@ -28,9 +28,9 @@ const memoSchema = new mongoose.Schema({
         type: Boolean
     },
     owner:{
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'User' // reference: model name
+         type: mongoose.Schema.Types.ObjectId,
+    //     //required: true,
+    //     ref: 'User' // reference: model name
     }
 }, {
     timestamps: true

@@ -8,7 +8,7 @@
     "start": "node src/index.js",
     "dev": "env-cmd ./config/dev.env nodemon src/index.js"
   },
-  "author": "",
+  "author": "Sijoon Lee",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",

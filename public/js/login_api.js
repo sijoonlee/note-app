@@ -1,14 +1,11 @@
 const APIURL = '/users/login/'
-export async function login(name, email, password) {
+export async function login(email, password) {
     return fetch(APIURL, {
           method: 'post',
-          //withCredentials: true,
-          //credentials: 'include',
           headers: new Headers({
           'Content-Type': 'application/json',
-          //'Authorization': 'Bearer ' + token
           }),
-          body: JSON.stringify({"name":name, "email":email, "password":password})
+          body: JSON.stringify({"email":email, "password":password})
       })
       .then(resp => {
         if(!resp.ok) {

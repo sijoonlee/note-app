@@ -9,7 +9,6 @@ router.post('/memo', auth, async (req, res) => {
         ...req.body,
         owner: req.user._id
     })
-    console.log("here");
     try {
         await memo.save()
         res.status(201).send(memo)

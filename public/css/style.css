@@ -1,0 +1,25 @@
+.menu
+{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.menu>input
+{
+    width:7em;
+    margin:0.1em;
+    padding:0.5em;
+    background-color: #ffd900;
+    border: none;
+    color: black;
+    text-align: center;
+    transition: 0.3s;
+    opacity:0.7;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+.menu>input:hover
+{
+    opacity:1;
+}

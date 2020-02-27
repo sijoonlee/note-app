@@ -1,10 +1,28 @@
 <head>
+    <link rel="stylesheet" type="text/css" href=".\css\login.css">
 </head>
 <body>
-    <input id="name" type="text"/>
-    <input id="email" type="email"/>
-    <input id="password" type="password"/>
-    <button id="btn_login" type="button">login</button>
+    <div class="welcome">
+        <p>Welcome to Post-it Style Note App</p>
+    </div>
+    <div class="login_form">
+        <div class="entry">
+            <label class="lbl">Email</label>
+            <input id="email" type="email" placeholder="guest@gmail.com"/>
+        </div>
+        <div class="entry">
+            <label class="lbl">Password</label>
+            <input id="password" type="password"placeholder="1234567"/>
+        </div>
+        <div class="btn_wrapper">
+            <button id="btn_login" type="button">login</button>
+        </div>
+    </div>
+    <div class="noticement">
+        <p>Currently Sign-up is not supported</p>
+        <p>Use <b>guest@gmail.com</b> for email</p>
+        <p>and <b>1234567</b> for password</p>
+    </div>
     <footer>
         <script type="module" src=".\js\login.js"></script>
     </footer>

@@ -127,6 +127,13 @@ deleteAllMemosNode.addEventListener("click", ()=>{
     view.deleteAllMemos();
 });
 
+const logout = document.getElementsByClassName("logout")[0];
+logout.addEventListener("click", ()=>{
+    localStorage.removeItem('token');
+    location.replace("/login.html");
+})
+
+
 async function initBoard(){
     const webBoard = await model.loadBoard();
     for ( let i in webBoard){

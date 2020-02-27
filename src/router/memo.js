@@ -3,7 +3,7 @@ const Memo = require('../model/memo')
 const auth = require('../middleware/auth')
 const router = new express.Router()
 
-router.post('/memo', auth, async (req, res) => {
+router.post('/memo', async (req, res) => {
     //console.log(req);
     const memo = new Memo({
         ...req.body,

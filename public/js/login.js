@@ -10,4 +10,3 @@ document.getElementById("btn_login").addEventListener("click", async () => {
 const storeToken = (token) => {
     localStorage.setItem('token', token)
 }
-
